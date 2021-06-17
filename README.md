@@ -35,7 +35,7 @@ could be used in an alternative asset to provide additional details on it's loca
 | Field Name  | Type   | Description |
 | ----------- | ------ | ----------- |
 | href        | string | **REQUIRED**. URI to the asset object |
-| <variable>  | <variable> | Any allowed Asset field that does not imply a different asset |
+| *variable*  | *variable* | Any allowed Asset field that does not imply a different asset |
 
 ## Contributing
 
