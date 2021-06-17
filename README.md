@@ -1,53 +1,41 @@
-# Template Extension Specification
+# Alternate Assets Extension Specification
 
-- **Title:** Template
+- **Title:** Alternate Assets
 - **Identifier:** <https://stac-extensions.github.io/template/v1.0.0/schema.json>
-- **Field Name Prefix:** template
-- **Scope:** Item, Collection
+- **Field Name Prefix:** -
+- **Scope:** Asset
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
-- **Owner**: @your-gh-handles @person2
+- **Owner**: @matthewhanson
 
-This document explains the Template Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
-This is the place to add a short introduction.
+The Alternate Assets extension to STAC provides a way to specify alternate locations (e.g., URLs) for assets. Sometimes, assets can be retrieved
+via multiple methods. For example an asset on AWS may have a public facing http URL but also a direct access s3 URL. Or an asset is mirrored
+on multiple servers that have different URLs. In this case the asset is exactly the same, but different protocols or cloud services may be used
+to access it.
 
 - Examples:
   - [Item example](examples/item.json): Shows the basic usage of the extension in a STAC Item
-  - [Collection example](examples/collection.json): Shows the basic usage of the extension in a STAC Collection
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
 
-## Item Properties and Collection Fields
+## Asset Properties
 
 | Field Name           | Type                      | Description |
 | -------------------- | ------------------------- | ----------- |
-| template:new_field   | string                    | **REQUIRED**. Describe the required field... |
-| template:xyz         | [XYZ Object](#xyz-object) | Describe the field... |
-| template:another_one | \[number]                 | Describe the field... |
+| alt         | [AlternativeAsset Object](#alternativeasset-object) | An array of alternate location information for an asset |
 
-### Additional Field Information
+### AlternativeAsset Object
 
-#### template:new_field
-
-This is a much more detailed description of the field `template:new_field`...
-
-### XYZ Object
-
-This is the introduction for the purpose and the content of the XYZ Object...
+The AlternativeAsset object holds any normal Asset field relevant to the location and access of the asset. 
+In the simplest case, the object consists of a single field, `href`, but could include other fields if they do not specify
+attributes in the physical asset. For example, `gsd` represents the resolution of the data asset. Changing that would imply
+a different asset. Fields like `title` or `description` can be used to provide info on the alternative asset.
+Considering other extensions, the fields from the [Storage Extension](https://github.com/stac-extensions/storage) 
+could be used in an alternative asset to provide additional details on it's location.
 
 | Field Name  | Type   | Description |
 | ----------- | ------ | ----------- |
-| x           | number | **REQUIRED**. Describe the required field... |
-| y           | number | **REQUIRED**. Describe the required field... |
-| z           | number | **REQUIRED**. Describe the required field... |
-
-## Relation types
-
-The following types should be used as applicable `rel` types in the
-[Link Object](https://github.com/radiantearth/stac-spec/tree/master/item-spec/item-spec.md#link-object).
-
-| Type                | Description |
-| ------------------- | ----------- |
-| fancy-rel-type      | This link points to a fancy resource. |
+| href        | string | **REQUIRED**. URI to the asset object |
+| <variable>  | <variable> | Any allowed Asset field that does not imply a different asset |
 
 ## Contributing
 
