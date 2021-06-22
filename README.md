@@ -1,7 +1,7 @@
 # Alternate Assets Extension Specification
 
 - **Title:** Alternate Assets
-- **Identifier:** <https://stac-extensions.github.io/template/v1.0.0/schema.json>
+- **Identifier:** <https://stac-extensions.github.io/alternate-assets/v1.0.0/schema.json>
 - **Field Name Prefix:** -
 - **Scope:** Asset
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
@@ -21,21 +21,14 @@ to access it.
 
 | Field Name           | Type                      | Description |
 | -------------------- | ------------------------- | ----------- |
-| alt         | [AlternativeAsset Object](#alternativeasset-object) | An array of alternate location information for an asset |
+| alternate         | [Asset Object](https://github.com/radiantearth/stac-spec/blob/master/item-spec/item-spec.md#asset-object) | An array of alternate location information for an asset |
 
-### AlternativeAsset Object
-
-The AlternativeAsset object holds any normal Asset field relevant to the location and access of the asset. 
+The alternate Assets are like any other Asset object, except should only contain fields relevant to the location and access of the asset. 
 In the simplest case, the object consists of a single field, `href`, but could include other fields if they do not specify
 attributes in the physical asset. For example, `gsd` represents the resolution of the data asset. Changing that would imply
-a different asset. Fields like `title` or `description` can be used to provide info on the alternative asset.
+a different asset. Fields like `title` or `description` can be used to provide info on the alternate asset.
 Considering other extensions, the fields from the [Storage Extension](https://github.com/stac-extensions/storage) 
 could be used in an alternative asset to provide additional details on it's location.
-
-| Field Name  | Type   | Description |
-| ----------- | ------ | ----------- |
-| href        | string | **REQUIRED**. URI to the asset object |
-| *variable*  | *variable* | Any allowed Asset field that does not imply a different asset |
 
 ## Contributing
 
