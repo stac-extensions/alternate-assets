@@ -1,0 +1,111 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://stac-extensions.github.io/alternate-assets/v1.0.0/schema.json#",
+  "title": "Alternate Assets Extension",
+  "description": "STAC Alternate Assets Extension for STAC Items and STAC Collections.",
+  "oneOf": [
+    {
+      "$comment": "This is the schema for STAC Items.",
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "assets"
+          ],
+          "properties": {
+            "type": {
+              "const": "Feature"
+            },
+            "assets": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/asset"
+              }
+            }
+          }
+        },
+        {
+          "$ref": "#/definitions/stac_extensions"
+        }
+      ]
+    },
+    {
+      "$comment": "This is the schema for STAC Collections.",
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "type": {
+              "const": "Collection"
+            },
+            "assets": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/asset"
+              }
+            },
+            "item_assets": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/item_asset"
+              }
+            }
+          }
+        },
+        {
+          "$ref": "#/definitions/stac_extensions"
+        }
+      ]
+    }
+  ],
+  "definitions": {
+    "stac_extensions": {
+      "type": "object",
+      "required": [
+        "stac_extensions"
+      ],
+      "properties": {
+        "stac_extensions": {
+          "type": "array",
+          "contains": {
+            "const": "https://stac-extensions.github.io/alternate-assets/v1.0.0/schema.json"
+          }
+        }
+      }
+    },
+    "assets": {
+      "title": "Assets",
+      "description": "Links to assets",
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/asset"
+      }
+    },
+    "asset": {
+      "type": "object",
+      "required": [
+        "alternate"
+      ],
+      "properties": {
+        "alternate": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/item.json#/definitions/asset"
+          }
+        }
+      }
+    },
+    "item_asset": {
+      "type": "object",
+      "properties": {
+        "alternate": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}
