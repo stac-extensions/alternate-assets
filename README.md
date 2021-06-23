@@ -33,7 +33,7 @@ could be used in an alternative asset to provide additional details on it's loca
 
 The key to each alternate asset, e.g.,
 
-```
+```json
 "alternate": {
   "s3": {
     "href": "s3://bucket/key"
@@ -46,7 +46,6 @@ in an Item are all available via s3 direct access, the key for all of them shoul
 
 It is also recommended that the [item assets](https://github.com/stac-extensions/item-assets)
 extension be used in Collections to convey to users what the options are for alternate access.
-
 
 ## Contributing
 
