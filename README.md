@@ -22,7 +22,7 @@ to access it.
 
 | Field Name           | Type                      | Description |
 | -------------------- | ------------------------- | ----------- |
-| alternate         | [Asset Object](https://github.com/radiantearth/stac-spec/blob/master/item-spec/item-spec.md#asset-object) | An array of alternate location information for an asset |
+| alternate         | [[Asset Object](https://github.com/radiantearth/stac-spec/blob/master/item-spec/item-spec.md#asset-object)] | An array of alternate location information for an asset |
 
 The alternate Assets are like any other Asset object, except should only contain fields relevant to the location and access of the asset. 
 In the simplest case, the object consists of a single field, `href`, but could include other fields if they do not specify
