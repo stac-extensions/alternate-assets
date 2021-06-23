@@ -31,6 +31,23 @@ a different asset. Fields like `title` or `description` can be used to provide i
 Considering other extensions, the fields from the [Storage Extension](https://github.com/stac-extensions/storage) 
 could be used in an alternative asset to provide additional details on it's location.
 
+The key to each alternate asset, e.g.,
+
+```
+"alternate": {
+  "s3": {
+    "href": "s3://bucket/key"
+  }
+}
+```
+
+should be used across all assets if from the same source. In other words, if all the assets
+in an Item are all available via s3 direct access, the key for all of them should be the same.
+
+It is also recommended that the [item assets](https://github.com/stac-extensions/item-assets)
+extension be used in Collections to convey to users what the options are for alternate access.
+
+
 ## Contributing
 
 All contributions are subject to the
