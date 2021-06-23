@@ -14,6 +14,7 @@ to access it.
 
 - Examples:
   - [Item example](examples/item.json): Shows the basic usage of the extension in a STAC Item
+  - [Collection example](examples/collection.json): Shows usage in Collection assets and [item assets](https://github.com/stac-extensions/item-assets)
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
 

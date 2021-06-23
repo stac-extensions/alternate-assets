@@ -50,12 +50,12 @@
   "assets": {
     "data": {
       "href": "https://mycoolsat.com/examples/file.xyz",
-      "alternate": [
-        {
-          "title": "Mirror 1",
-          "href": "https://mycoolsat-mirror1.com/examples/file.xyz"
+      "alternate": {
+        "s3": {
+          "title": "s3 Access",
+          "href": "s3://mycoolsat-bucket/examples/file.xyz"
         }
-      ]
+      }
     }
   }
 }

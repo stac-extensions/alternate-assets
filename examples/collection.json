@@ -1,0 +1,71 @@
+{
+  "stac_version": "1.0.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/alternate-assets/v1.0.0/schema.json"
+  ],
+  "type": "Collection",
+  "id": "collection-1",
+  "title": "Ode to the Collection",
+  "description": "Mysterious",
+  "license": "Apache-2.0",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          172.9,
+          1.3,
+          173,
+          1.4
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2015-06-23T00:00:00Z",
+          null
+        ]
+      ]
+    }
+  },
+  "assets": {
+    "collection-data": {
+      "href": "https://example.com/collection/file.xyz",
+      "alternate": {
+        "s3": {
+          "title": "s3 Access",
+          "href": "s3://mycoolsat-bucket/collection/file.xyz"
+        }
+      }
+    }
+  },
+  "item_assets": {
+    "data": {
+      "roles": [
+        "data"
+      ],
+      "alternate": {
+        "s3": {
+          "title": "s3 Access"
+        }
+      }
+    }
+  },
+  "summaries": {
+    "datetime": {
+      "minimum": "2015-06-23T00:00:00Z",
+      "maximum": "2019-07-10T13:44:56Z"
+    }
+  },
+  "links": [
+    {
+      "href": "https://example.com/examples/collection.json",
+      "rel": "self"
+    },
+    {
+      "href": "https://example.com/examples/item.json",
+      "rel": "item"
+    }
+  ]
+}
