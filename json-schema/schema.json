@@ -45,13 +45,13 @@
             "assets": {
               "type": "object",
               "additionalProperties": {
-                "$ref": "#/definitions/assets"
+                "$ref": "#/definitions/asset"
               }
             },
             "item_assets": {
               "type": "object",
               "additionalProperties": {
-                "$ref": "#/definitions/assets"
+                "$ref": "#/definitions/item_asset"
               }
             }
           }
@@ -78,7 +78,7 @@
       }
     },
     "assets": {
-      "title": "Asset links",
+      "title": "Assets",
       "description": "Links to assets",
       "type": "object",
       "additionalProperties": {
@@ -92,11 +92,18 @@
       ],
       "properties": {
         "alternate": {
-          "type": "array",
-          "items": {
-            "type": "object",
+          "type": "object",
+          "additionalProperties": {
             "$ref": "https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/item.json#/definitions/asset"
           }
+        }
+      }
+    },
+    "item_asset": {
+      "type": "object",
+      "properties": {
+        "alternate": {
+          "type": "object"
         }
       }
     }

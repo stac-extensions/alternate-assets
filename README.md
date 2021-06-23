@@ -14,6 +14,7 @@ to access it.
 
 - Examples:
   - [Item example](examples/item.json): Shows the basic usage of the extension in a STAC Item
+  - [Collection example](examples/collection.json): Shows usage in Collection assets and [item assets](https://github.com/stac-extensions/item-assets)
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
 
@@ -21,7 +22,7 @@ to access it.
 
 | Field Name           | Type                      | Description |
 | -------------------- | ------------------------- | ----------- |
-| alternate         | [[Asset Object](https://github.com/radiantearth/stac-spec/blob/master/item-spec/item-spec.md#asset-object)] | An array of alternate location information for an asset |
+| alternate         | Map<string, [Asset Object](https://github.com/radiantearth/stac-spec/blob/master/item-spec/item-spec.md#asset-object)> | An array of alternate location information for an asset |
 
 The alternate Assets are like any other Asset object, except should only contain fields relevant to the location and access of the asset. 
 In the simplest case, the object consists of a single field, `href`, but could include other fields if they do not specify
@@ -29,6 +30,22 @@ attributes in the physical asset. For example, `gsd` represents the resolution o
 a different asset. Fields like `title` or `description` can be used to provide info on the alternate asset.
 Considering other extensions, the fields from the [Storage Extension](https://github.com/stac-extensions/storage) 
 could be used in an alternative asset to provide additional details on it's location.
+
+The key to each alternate asset, e.g.,
+
+```json
+"alternate": {
+  "s3": {
+    "href": "s3://bucket/key"
+  }
+}
+```
+
+should be used across all assets if from the same source. In other words, if all the assets
+in an Item are all available via s3 direct access, the key for all of them should be the same.
+
+It is also recommended that the [item assets](https://github.com/stac-extensions/item-assets)
+extension be used in Collections to convey to users what the options are for alternate access.
 
 ## Contributing
 
