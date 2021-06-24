@@ -50,6 +50,9 @@
   "assets": {
     "data": {
       "href": "https://mycoolsat.com/examples/file.xyz",
+      "roles": [
+        "data"
+      ],
       "alternate": {
         "s3": {
           "title": "s3 Access",

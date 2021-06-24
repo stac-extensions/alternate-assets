@@ -16,12 +16,12 @@
           "properties": {
             "type": {
               "const": "Feature"
-            },
-            "assets": {
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/asset"
-              }
+            }
+          },
+          "assets": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/assets"
             }
           }
         },
@@ -41,18 +41,18 @@
           "properties": {
             "type": {
               "const": "Collection"
-            },
-            "assets": {
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/asset"
-              }
-            },
-            "item_assets": {
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/item_asset"
-              }
+            }
+          },
+          "assets": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/assets"
+            }
+          },
+          "item_assets": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/assets"
             }
           }
         },
@@ -81,29 +81,45 @@
       "title": "Assets",
       "description": "Links to assets",
       "type": "object",
-      "additionalProperties": {
-        "$ref": "#/definitions/asset"
-      }
-    },
-    "asset": {
-      "type": "object",
-      "required": [
-        "alternate"
-      ],
       "properties": {
         "alternate": {
           "type": "object",
           "additionalProperties": {
-            "$ref": "https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/item.json#/definitions/asset"
+            "$ref": "#/definitions/asset"
           }
         }
+      },
+      "additionalProperties": {
+        "$ref": "#/definitions/asset" 
       }
     },
-    "item_asset": {
+    "asset": {
       "type": "object",
       "properties": {
-        "alternate": {
-          "type": "object"
+        "href": {
+          "title": "Asset reference",
+          "type": "string",
+          "format": "iri-reference",
+          "minLength": 1
+        },
+        "title": {
+          "title": "Asset title",
+          "type": "string"
+        },
+        "description": {
+          "title": "Asset description",
+          "type": "string"
+        },
+        "type": {
+          "title": "Asset type",
+          "type": "string"
+        },
+        "roles": {
+          "title": "Asset roles",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     }
