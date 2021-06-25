@@ -1,7 +1,7 @@
 # Alternate Assets Extension Specification
 
 - **Title:** Alternate Assets
-- **Identifier:** <https://stac-extensions.github.io/alternate-assets/v1.0.0/schema.json>
+- **Identifier:** <https://stac-extensions.github.io/alternate-assets/v1.1.0/schema.json>
 - **Field Name Prefix:** -
 - **Scope:** Asset
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
@@ -22,14 +22,13 @@ to access it.
 
 | Field Name           | Type                      | Description |
 | -------------------- | ------------------------- | ----------- |
-| alternate         | Map<string, [Asset Object](https://github.com/radiantearth/stac-spec/blob/master/item-spec/item-spec.md#asset-object)> | An array of alternate location information for an asset |
+| alternate         | Map<string, [AlternateAsset Object](#alternate-asset-object)> | An array of alternate location information for an asset |
 
-The alternate Assets are like any other Asset object, except should only contain fields relevant to the location and access of the asset. 
-In the simplest case, the object consists of a single field, `href`, but could include other fields if they do not specify
-attributes in the physical asset. For example, `gsd` represents the resolution of the data asset. Changing that would imply
-a different asset. Fields like `title` or `description` can be used to provide info on the alternate asset.
-Considering other extensions, the fields from the [Storage Extension](https://github.com/stac-extensions/storage) 
-could be used in an alternative asset to provide additional details on it's location.
+The Alternate Assets are similar to the core Asset object, except only contain fields relevant to the location and access of the asset. 
+In the simplest case, the object consists of a single field, `href`, but could include a title or description to provide additional info
+regarding the alternate location or URL. 
+The fields from the [Storage Extension](https://github.com/stac-extensions/storage) could be used in an AlternateAsset to 
+provide additional details on it's location.
 
 The key to each alternate asset, e.g.,
 
@@ -46,6 +45,14 @@ in an Item are all available via s3 direct access, the key for all of them shoul
 
 It is also recommended that the [item assets](https://github.com/stac-extensions/item-assets)
 extension be used in Collections to convey to users what the options are for alternate access.
+
+### Alternate Asset Object
+
+| Field Name  | Type      | Description |
+| ----------- | --------- | ----------- |
+| href        | string    | **REQUIRED.** URI to the asset object. Relative and absolute URI are both allowed. |
+| title       | string    | The displayed title for clients and users. |
+| description | string    | A description of the Asset providing additional details, such as how it was processed or created. [CommonMark 0.29](http://commonmark.org/) syntax MAY be used for rich text representation. |
 
 ## Contributing
 
