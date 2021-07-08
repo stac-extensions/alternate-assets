@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://stac-extensions.github.io/alternate-assets/v1.0.0/schema.json#",
+  "$id": "https://stac-extensions.github.io/alternate-assets/v1.1.0/schema.json#",
   "title": "Alternate Assets Extension",
   "description": "STAC Alternate Assets Extension for STAC Items and STAC Collections.",
   "oneOf": [
@@ -20,7 +20,7 @@
             "assets": {
               "type": "object",
               "additionalProperties": {
-                "$ref": "#/definitions/asset"
+                "$ref": "#/definitions/alternate_assets"
               }
             }
           }
@@ -45,13 +45,13 @@
             "assets": {
               "type": "object",
               "additionalProperties": {
-                "$ref": "#/definitions/asset"
+                "$ref": "#/definitions/alternate_assets"
               }
             },
             "item_assets": {
               "type": "object",
               "additionalProperties": {
-                "$ref": "#/definitions/item_asset"
+                "$ref": "#/definitions/alternate_item_assets"
               }
             }
           }
@@ -72,38 +72,59 @@
         "stac_extensions": {
           "type": "array",
           "contains": {
-            "const": "https://stac-extensions.github.io/alternate-assets/v1.0.0/schema.json"
+            "const": "https://stac-extensions.github.io/alternate-assets/v1.1.0/schema.json"
           }
         }
       }
     },
-    "assets": {
+    "alternate_assets": {
       "title": "Assets",
       "description": "Links to assets",
       "type": "object",
-      "additionalProperties": {
-        "$ref": "#/definitions/asset"
-      }
-    },
-    "asset": {
-      "type": "object",
-      "required": [
-        "alternate"
-      ],
       "properties": {
         "alternate": {
           "type": "object",
           "additionalProperties": {
-            "$ref": "https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/item.json#/definitions/asset"
+            "required": ["href"],
+            "properties": {
+              "href": {
+                "title": "Asset reference",
+                "type": "string",
+                "format": "iri-reference",
+                "minLength": 1
+              },
+              "title": {
+                "title": "Asset title",
+                "type": "string"
+              },
+              "description": {
+                "title": "Asset description",
+                "type": "string"
+              }
+            }
           }
         }
       }
     },
-    "item_asset": {
+    "alternate_item_assets": {
+      "title": "Assets",
+      "description": "Links to assets",
       "type": "object",
       "properties": {
         "alternate": {
-          "type": "object"
+          "type": "object",
+          "additionalProperties": {
+            "properties": {
+              "title": {
+                "title": "Asset title",
+                "type": "string"
+              },
+              "description": {
+                "title": "Asset description",
+                "type": "string"
+              }            
+            }
+          }
         }
       }
     }
