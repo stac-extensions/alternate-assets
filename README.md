@@ -4,7 +4,7 @@
 - **Identifier:** <https://stac-extensions.github.io/alternate-assets/v1.1.0/schema.json>
 - **Field Name Prefix:** -
 - **Scope:** Asset
-- **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
+- **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Pilot
 - **Owner**: @matthewhanson
 
 The Alternate Assets extension to STAC provides a way to specify alternate locations (e.g., URLs) for assets. Sometimes, assets can be retrieved
