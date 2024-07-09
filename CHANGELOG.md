@@ -6,9 +6,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added a new field `name` to the Alternate Asset Object
+
+### Changed
+
+- The fields `title` and `description` are inherited from STAC Common Metadata
+  - No minimum length for `title`
+  - A minimum length of 1 for `description`
+- At least one alternate asset is required
+
+### Fixed
+
+- Improved the JSON Schema to follow the written documentation
+
 ## [v1.1.0] - 2021-07-08
 
 ### Changed
+
 - No longer reference a STAC version
 - Alternate objects are not of type `Asset` but rather `AlternateAsset` which is just a restrictive version of an `Asset`
 
