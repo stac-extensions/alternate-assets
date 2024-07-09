@@ -2,7 +2,7 @@
 
 - **Title:** Alternate Assets
 - **Identifier:** <https://stac-extensions.github.io/alternate-assets/v1.2.0/schema.json>
-- **Field Name Prefix:** -
+- **Field Name Prefix:** `alternate`
 - **Scope:** Item, Collection
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Pilot
 - **Owner**: @matthewhanson
@@ -30,10 +30,10 @@ The fields in the table below can be used in these parts of STAC documents:
 - [x] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
 - [ ] Links
 
-| Field Name | Type                                                           | Description |
-| ---------- | -------------------------------------------------------------- | ----------- |
-| alternate  | Map<string, [Alternate Asset Object](#alternate-asset-object)> | An array of alternate location information for an asset |
-| name       | string                                                         | A short name to distinguish the asset from the alternate assets. |
+| Field Name     | Type                                                           | Description |
+| -------------- | -------------------------------------------------------------- | ----------- |
+| alternate      | Map<string, [Alternate Asset Object](#alternate-asset-object)> | An array of alternate location information for an asset |
+| alternate:name | string                                                         | A short name to distinguish the asset from the alternate assets. |
 
 Each alternate asset consists of a key and an Alternate Asset Object.
 
@@ -55,14 +55,14 @@ In other words, if all the assets in an Item are all available via s3 direct acc
 
 ### Alternate Asset Object
 
-The Alternate Asset Object are similar to the core Asset object, except only contain fields relevant to the location and access of the asset. 
+The Alternate Asset Object are similar to the core Asset object, except only contain fields relevant to the location and access of the asset.
 
-| Field Name  | Type   | Description |
-| ----------- | ------ | ----------- |
-| href        | string | **REQUIRED.** URI to the asset object. Relative and absolute URI are both allowed. |
-| name        | string | A short name to distinguish the alternate assets. |
+| Field Name     | Type   | Description |
+| -------------- | ------ | ----------- |
+| href           | string | **REQUIRED.** URI to the asset object. Relative and absolute URI are both allowed. |
+| alternate:name | string | A short name to distinguish the alternate assets. |
 
-In the simplest case, the object consists of a single `href` field, but could include additional details regarding the alternate location or URL. 
+In the simplest case, the object consists of a single `href` field, but could include additional details regarding the alternate location or URL.
 
 Some fields that are commonly provided:
 

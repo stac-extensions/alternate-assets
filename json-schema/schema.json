@@ -25,7 +25,7 @@
         "assets": {
           "type": "object",
           "properties": {
-            "name": {
+            "alternate:name": {
               "$ref": "#/definitions/name"
             },
             "alternate": {
@@ -50,7 +50,7 @@
           "type": "object",
           "additionalProperties": {
             "properties": {
-              "name": {
+              "alternate:name": {
                 "$ref": "#/definitions/name"
               },
               "alternate": {
@@ -70,7 +70,7 @@
     "object_without_href": {
       "type": "object",
       "properties": {
-        "name": {
+        "alternate:name": {
           "$ref": "#/definitions/name"
         }
       },
@@ -85,7 +85,7 @@
       "additionalProperties": {
         "type": "object",
         "properties": {
-          "name": {
+          "alternate:name": {
             "$ref": "#/definitions/name"
           },
           "alternate": {

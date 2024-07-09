@@ -37,15 +37,15 @@
       "roles": [
         "archive"
       ],
-      "name": "Example Corp. HTTPS",
+      "alternate:name": "Example Corp. HTTPS",
       "alternate": {
         "s3": {
           "href": "s3://mycoolsat-bucket/collection/items.zip",
-          "name": "Amazon S3"
+          "alternate:name": "Amazon S3"
         },
         "source": {
           "href": "https://source.coop/example/collection/items.zip",
-          "name": "Source.coop HTTPS"
+          "alternate:name": "Source.coop HTTPS"
         }
       }
     }
@@ -56,10 +56,10 @@
       "roles": [
         "data"
       ],
-      "name": "HTTPS",
+      "alternate:name": "HTTPS",
       "alternate": {
         "s3": {
-          "name": "S3",
+          "alternate:name": "S3",
           "description": "Access the files via regular Amazon AWS S3 tooling."
         }
       }
