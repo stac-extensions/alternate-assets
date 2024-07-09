@@ -11,8 +11,8 @@ The Alternate Assets extension to STAC provides a way to specify alternate locat
 Sometimes, assets can be retrieved via multiple methods.
 For example an asset on AWS may have a public facing http URL but also a direct access s3 URL.
 Or an asset is mirrored on multiple servers that have different URLs.
-In this case the asset is exactly the same, but different protocols or cloud services may be used to access it.
-The content of the asset should be the same, i.e., the checksum of the data should be the same as well as e.g. the media type or the file size.
+The file the asset points to must always be exactly the same (i.e. both assets have the same checksum and file size),
+but different protocols, authentication mechanisms or cloud services may be used to access it.
 
 - Examples:
   - [Item example](examples/item.json): Shows the basic usage of the extension in a STAC Item
