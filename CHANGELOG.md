@@ -6,9 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.2.0] - 2023-03-15
+
 ### Added
 
-- Added a new field `name` to the Alternate Asset Object
+- Added a new field `alternate:name` to the Asset Object and Alternate Asset Object
 
 ### Changed
 
@@ -35,6 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Initial release
 
-[Unreleased]: <https://github.com/stac-extensions/alternate-assets/compare/v1.1.0...HEAD>
+[Unreleased]: <https://github.com/stac-extensions/alternate-assets/compare/v1.2.0...HEAD>
+[v1.2.0]: <https://github.com/stac-extensions/alternate-assets/compare/v1.1.0...v1.2.0>
 [v1.1.0]: <https://github.com/stac-extensions/alternate-assets/compare/v1.0.0...v1.1.0>
 [v1.0.0]: <https://github.com/stac-extensions/alternate-assets/tree/v1.0.0>

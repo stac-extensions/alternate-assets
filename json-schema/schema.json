@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://stac-extensions.github.io/alternate-assets/v1.1.0/schema.json#",
+  "$id": "https://stac-extensions.github.io/alternate-assets/v1.2.0/schema.json#",
   "title": "Alternate Assets Extension",
   "description": "STAC Alternate Assets Extension for STAC Items and STAC Collections.",
   "type": "object",
@@ -9,7 +9,7 @@
     "stac_extensions": {
       "type": "array",
       "contains": {
-        "const": "https://stac-extensions.github.io/alternate-assets/v1.1.0/schema.json"
+        "const": "https://stac-extensions.github.io/alternate-assets/v1.2.0/schema.json"
       }
     }
   },
@@ -25,7 +25,7 @@
         "assets": {
           "type": "object",
           "properties": {
-            "name": {
+            "alternate:name": {
               "$ref": "#/definitions/name"
             },
             "alternate": {
@@ -50,7 +50,7 @@
           "type": "object",
           "additionalProperties": {
             "properties": {
-              "name": {
+              "alternate:name": {
                 "$ref": "#/definitions/name"
               },
               "alternate": {
@@ -70,7 +70,7 @@
     "object_without_href": {
       "type": "object",
       "properties": {
-        "name": {
+        "alternate:name": {
           "$ref": "#/definitions/name"
         }
       },
@@ -85,7 +85,7 @@
       "additionalProperties": {
         "type": "object",
         "properties": {
-          "name": {
+          "alternate:name": {
             "$ref": "#/definitions/name"
           },
           "alternate": {
