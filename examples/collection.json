@@ -30,32 +30,39 @@
     }
   },
   "assets": {
-    "collection-data": {
-      "href": "https://example.com/collection/file.xyz",
+    "items": {
+      "href": "https://example.com/collection/items.zip",
+      "type": "application/zip",
+      "title": "A collection of all STAC Items as a ZIP file.",
+      "roles": [
+        "archive"
+      ],
+      "name": "Example Corp. HTTPS",
       "alternate": {
         "s3": {
-          "title": "s3 Access",
-          "href": "s3://mycoolsat-bucket/collection/file.xyz"
+          "href": "s3://mycoolsat-bucket/collection/items.zip",
+          "name": "Amazon S3"
+        },
+        "source": {
+          "href": "https://source.coop/example/collection/items.zip",
+          "name": "Source.coop HTTPS"
         }
       }
     }
   },
   "item_assets": {
     "data": {
+      "type": "image/tiff; application=geotiff",
       "roles": [
         "data"
       ],
+      "name": "HTTPS",
       "alternate": {
         "s3": {
-          "title": "s3 Access"
+          "name": "S3",
+          "description": "Access the files via regular Amazon AWS S3 tooling."
         }
       }
-    }
-  },
-  "summaries": {
-    "datetime": {
-      "minimum": "2015-06-23T00:00:00Z",
-      "maximum": "2019-07-10T13:44:56Z"
     }
   },
   "links": [
